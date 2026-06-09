@@ -12,6 +12,8 @@ class EntriesController < ApplicationController
     entry["user_id"]     = current_user["id"]
     entry.save
 
+    entry.uploaded_image.attach(params["uploaded_image"])
+
     redirect_to("/places/#{entry["place_id"]}")
   end
 end
